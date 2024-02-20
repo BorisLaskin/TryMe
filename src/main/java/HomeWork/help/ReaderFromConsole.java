@@ -1,5 +1,6 @@
 package HomeWork.help;
 
+import HomeWork.help.MyExceptions.PhoneEx;
 import HomeWork.help.MyExceptions.SexFormatEx;
 import HomeWork.help.MyExceptions.WrongDateFormatEx;
 import HomeWork.help.MyExceptions.WrongNumberOfArguments;
@@ -44,13 +45,18 @@ public class ReaderFromConsole extends Reader {
                     case "female" -> SexEnum.valueOf("FEMALE");
                     default -> throw new SexFormatEx("Возможные варианты только male и female");
                 };
-                human = new Human(args[0], args[1], args[2], calendar, humanSex, parseInt(args[5]));
+                long phoneNumber = Long.parseLong(args[5]);
+                if (phoneNumber<0) throw new PhoneEx("Номер должен быть положительным");
+                human = new Human(args[0], args[1], args[2], calendar, humanSex, phoneNumber);
                 flag = false;
             } catch (WrongDateFormatEx e) {
                 System.out.println("Дату следует вводить в формате ЧЧ.ММ.ГГГГ:" + e.getMessage());
                 System.out.println("Попробуй еще раз\n");
-            } catch (SexFormatEx|WrongNumberOfArguments e) {
+            } catch (SexFormatEx|WrongNumberOfArguments|PhoneEx e) {
                 System.out.println(e.getMessage());
+                System.out.println("Попробуй еще раз\n");
+            }catch (NumberFormatException e){
+                System.out.println("Номер телефона не число");
                 System.out.println("Попробуй еще раз\n");
             }
         }

@@ -11,10 +11,10 @@ public class Human {
     private Calendar dateBirth;
     private SexEnum humanSex;
 
-    private int phoneNumber;
+    private long phoneNumber;
 
     public Human(String family, String name, String Sername, Calendar dateBirth,
-                 SexEnum humanSex, int phoneNumber) {
+                 SexEnum humanSex, long phoneNumber) {
         this.family = family;
         this.name = name;
         this.Sername = Sername;
@@ -23,12 +23,15 @@ public class Human {
         this.phoneNumber = phoneNumber;
 
     }
+    public String getFamily(){
+        return this.family;
+    }
     @Override
     public String toString() {
         DateFormat df = new SimpleDateFormat("dd MMM yyyy");
-        String result = "Фамилия: "+this.family+" Имя: "+this.name+" Отчество: "+this.Sername+
+        String result = "Фамилия, Имя, Отчество: "+this.family+" "+this.name+" "+this.Sername+
                 "\nДата рождения: "+df.format(this.dateBirth.getTime())+
-                "\nПол:"+this.humanSex.getTitle()+" Телефон: "+((Integer)this.phoneNumber).toString();
+                "\nПол:"+this.humanSex.getTitle()+" Телефон: "+((Long)this.phoneNumber).toString();
         return result;
     }
 }
