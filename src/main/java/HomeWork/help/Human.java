@@ -11,7 +11,7 @@ public class Human {
 
     private int phoneNumber;
 
-    public human(String family, String name, String Sername, Calendar dateBirth,
+    public Human(String family, String name, String Sername, Calendar dateBirth,
                  SexEnum humanSex, int phoneNumber) {
         this.family = family;
         this.name = name;
@@ -20,5 +20,10 @@ public class Human {
         this.humanSex = humanSex;
         this.phoneNumber = phoneNumber;
 
+    }
+    @Override
+    public String toString() {
+        String result = this.family+this.name+this.Sername+this.dateBirth+this.humanSex+((Integer)this.phoneNumber).toString();
+        return result;
     }
 }
