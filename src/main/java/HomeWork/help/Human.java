@@ -1,4 +1,6 @@
 package HomeWork.help;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
 public class Human {
@@ -23,7 +25,10 @@ public class Human {
     }
     @Override
     public String toString() {
-        String result = this.family+this.name+this.Sername+this.dateBirth.toString()+this.humanSex.getTitle()+((Integer)this.phoneNumber).toString();
+        DateFormat df = new SimpleDateFormat("dd MMM yyyy");
+        String result = "Фамилия: "+this.family+" Имя: "+this.name+" Отчество: "+this.Sername+
+                "\nДата рождения: "+df.format(this.dateBirth.getTime())+
+                "\nПол:"+this.humanSex.getTitle()+" Телефон: "+((Integer)this.phoneNumber).toString();
         return result;
     }
 }
