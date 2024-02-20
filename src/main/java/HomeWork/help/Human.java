@@ -23,7 +23,7 @@ public class Human {
     }
     @Override
     public String toString() {
-        String result = this.family+this.name+this.Sername+this.dateBirth+this.humanSex+((Integer)this.phoneNumber).toString();
+        String result = this.family+this.name+this.Sername+this.dateBirth.toString()+this.humanSex.getTitle()+((Integer)this.phoneNumber).toString();
         return result;
     }
 }
