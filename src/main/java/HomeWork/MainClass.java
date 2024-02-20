@@ -17,7 +17,7 @@ public class MainClass {
         Human human = myReader.readNewHuman();
         String filename = human.getFamily();
         try(FileWriter writer = new FileWriter(filename,true)){
-            writer.write(human.toString());
+            writer.write(human.toString()+"\n");
         }
         catch (IOException e){
             e.printStackTrace();
